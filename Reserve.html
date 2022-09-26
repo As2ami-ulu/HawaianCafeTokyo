@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="jp">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>フラダンスイベント予約画面</title>
+    <style>
+      .form {
+        width: 100%;
+        margin: 0 auto;
+        border: 1px solid #9c9c9c;
+        padding: 50px;
+        box-sizing: border-box;
+      }
+​
+      .item {
+        margin-bottom: 20px;
+      }
+​
+      .label_left {
+        display: inline-block;
+        width: 25%;
+        border-left: solid 5px #DC143C;
+        padding-left: 15px;
+        vertical-align: top;
+      }
+​
+      .form input[type="text"],
+      .form input[type="number"],
+      .form input[type="email"],
+      .form input[type="password"] {
+        padding: 10px;
+        width: 65%;
+      }
+​
+      .form textarea {
+        padding: 10px;
+        height: 100px;
+        font-size: 14px;
+        width: 65%;
+      }
+​
+      .form select {
+        height: 35px;
+        width: 65%;
+      }
+​
+      .btns {
+        display: flex;
+        justify-content: center;
+      }
+​
+      .form input[type="submit"] {
+        background: #DC143C;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 20px;
+        margin: 0 5px;
+      }
+​
+      .form input[type="reset"] {
+        background: #333;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px 20px;
+        margin: 0 5px;
+      }
+      label.label_left {
+    display: inline-block;
+    width: 25%;
+    border-left: solid 15px #DC143C;
+    padding-left: 15px;
+    vertical-align: top;
+}
+    </style>
+  </head>
+  <body>
+    <form class="form" action="#" method="post">
+
+         <!--   予約日時 -->
+      <div class="item">
+        <label class="label_left" for="prefecture">予約日時</label>
+        <select name="prefecture" id="prefecture">
+          <option value="">以下から選択してください</option>
+          <option value="10">8月14日(日)12時～</option>
+          <option value="18">8月18日(木)19時～</option>
+          <option value="29">8月29日(月)19時～</option></select><br />
+      </div>
+ ​
+      <!--   名前 -->
+      <div class="item">
+        <label class="label_left" for="name">名前</label>
+        <input id="name" type="text" placeholder="名前を入力" required /><br />
+      </div>
+​
+      <!--   年齢 -->
+      <div class="item">
+        <label class="label_left" for="age">年齢</label>
+        <input id="age" type="number" placeholder="数字を入力" required /><br />
+      </div>
+​
+      <!--   メールアドレス -->
+      <div class="item">
+        <label class="label_left" for="email">メールアドレス</label>
+        <input
+          id="email"
+          type="email"
+          placeholder="メールアドレスを入力"
+          required
+        /><br />
+      </div>
+​
+      <!--   パスワード -->
+      <div class="item">
+        <label class="label_left" for="password">パスワード</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="パスワードを入力"
+          required
+        /><br />
+      </div>
+​
+      <!--   性別 -->
+      <div class="item">
+        <fieldset>
+          <legend>性別</legend>
+          <label for="dansei">男性</label>
+          <input
+            id="dansei"
+            type="radio"
+            name="sex"
+            value="dansei"
+            checked
+          /><br />
+          <label for="zyosei">女性</label>
+          <input id="zyosei" type="radio" name="sex" value="zyosei" /><br />
+        </fieldset>
+      </div>
+​
+      <!--   好きなところ -->
+      <div class="item">
+        <fieldset>
+          <legend>ハワイの好きなところ</legend>
+          <label for="fashion">ファッション</label>
+          <input
+            type="checkbox"
+            name="status"
+            value="会社員"
+            id="fashion"
+          /><br />
+          <label for="food">グルメ</label>
+          <input
+            type="checkbox"
+            name="status"
+            value="学生"
+            id="chemistry"
+          /><br />
+          <label for="sightseeing">観光</label>
+          <input
+            type="checkbox"
+            name="status"
+            value="学生"
+            id="politics"
+          /><br />
+          <label for="japanese">日本語が通じる</label>
+          <input
+            type="checkbox"
+            name="status"
+            value="学生"
+            id="economy"
+          /><br />
+        </fieldset>
+      </div>
+​
+      <!--   備考 -->
+      <div class="item">
+        <label class="label_left" for="remarks">備考</label>
+        <textarea
+          name="textarea"
+          id="remarks"
+          placeholder="備考を入力"
+        ></textarea
+        ><br />
+      </div>
+​
+​
+      <!--   名前 -->
+      <div class="btns">
+        <input type="submit" value="登録" /><br />
+        <input type="reset" value="リセット" />
+      </div>
+    </form>
+  </body>
+</html>

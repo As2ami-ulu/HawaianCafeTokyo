@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Hawaiian Cafe Tokyo</title>
+	<link rel="stylesheet" href="style.css" type="text/css" media="screen">
+</head>
+
+<style>
+
+
+
+</style>
+
+<body>
+
+<div id="wrapper">
+
+	<!-- ヘッダーここから -->
+	<header>
+		<h1>
+			東京でハワイ気分を満喫<br><br>
+			<span>Hawaiian Cafe Tokyo</span>
+		</h1>
+
+		<nav>
+			<ul>
+				<li><a href="top.html">ホーム</a></li>
+				<li><a href="menu.html">メニュー一覧</a></li>
+				<li><a href="Reserve.html">ご予約</a></li>
+			</ul>
+		</nav>
+
+		<div class="clear"></div>
+
+		
+	</header>
+	<!-- ヘッダーここまで -->
+
+	<!-- メイン画像ここから -->
+	<div id="mainimage" class="box-shadow">
+		<img src="top_image.jpg" height="290" width="950" alt="メイン画像">
+	</div>
+	
+	<!-- メイン画像ここまで -->
+
+	<!-- 左ここから -->
+	<div id="left" class="box-shadow">
+		<h2>新着情報</h2>
+		<ul>
+			<li><span>2022-12-20</span>クリスマスイベント開催決定！詳細はご予約画面へ。</li>
+			<li><span>2022-11-25</span>今月のフラレッスンについて。</li>
+			<li><span>2022-10-23</span>ハロウィンイベント開催いたします。</li>
+			<li><span>2022-10-16</span>新メニュー登場！</li>
+			<li><span>2022-9-30</span>今月のフラレッスンについて。</li>
+			<li><span>2022-9-12</span>秋もハワイ気分満喫しませんか？</li>
+			<li><span>2022-8-29</span>今月のフラレッスンについて。</li>
+			<li><span>2022-7-11</span>夏はイベント目白押し！詳細はご予約画面へ。</li>
+			<li><span>2022-6-18</span>今月のフラレッスンについて。</li>
+		</ul>
+	</div>
+	<!-- 左ここまで -->
+
+	<!-- 右ここから -->
+	<div id="right">
+		<ul>
+			<li class="box-shadow"><a id="contact" href="Reserve.html">ご予約・お問い合わせ</a></li>
+			<li class="box-shadow"><a id="blog" href="#">店員ブログ</a></li>
+		</ul>
+	</div>
+	<!-- 右ここまで -->
+
+	<!-- ガチャここから -->
+	<div class="row">
+		<main>
+		  <h2>＊ハワイ語ガチャ＊</h2>
+		  <div id="gacha-display">
+		  今日の素敵なハワイのことば。<br>
+		  下記ボタンをクリック/タップで表示します。
+		
+		<button id="gacha-button">ハワイ語を表示</button>
+	</div>
+</div>
+	<!-- ガチャここまで -->
+
+	<!-- メニューここから -->
+
+	<div id="thumbnails"></div>
+    <div id="main"></div>
+    <div id="nav">
+      <button id="prev">&laquo; 前へ</button>
+      <button id="next">次へ &raquo;</button>
+      <button id="play">再生</button>
+      <button id="stop">停止</button>
+    </div>
+	<!-- メニューここまで -->
+
+	<div class="clear"></div>
+
+<!-- //#wrapper -->
+
+	<!-- フッターここから -->
+	<footer>
+		<p>Copyright (C) 2010-2015 Campus inc. All Right Reserved.</p>
+	</footer>
+	<!-- フッターここまで -->
+
+	<script src="kakugen/gacha.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script>
+		$(function () {
+		  var files = ["rokomoko.jpg", "ebi.jpg", "pancake.jpg", "poki.jpg"];
+		  var img;
+		  var timer;
+		  var currentNum = 0;
+		  var nowPlaying = false;
+		  for (var i = 0; i < files.length; i++) {
+			img = $("<img>").attr("src", files[i]).addClass("thumbnail");
+			$("#thumbnails").append(img);
+		  }
+		  $("#main").append($("<img>").attr("src", files[0]));
+		  $(".thumbnail:first").addClass("current");
+		  $(".thumbnail").click(function () {
+			$("#main img").attr("src", $(this).attr("src"));
+			currentNum = $(this).index();
+			$(this).addClass("current").siblings().removeClass("current");
+		  });
+		  $("#prev").click(function () {
+			currentNum--;
+			if (currentNum < 0) {
+			  currentNum = files.length - 1;
+			}
+			$("#main img").attr("src", files[currentNum]);
+			$(".thumbnail").removeClass("current");
+			$(".thumbnail").eq(currentNum).addClass("current");
+		  });
+		  $("#next").click(function () {
+			currentNum++;
+			if (currentNum > files.length - 1) {
+			  currentNum = 0;
+			}
+			$("#main img").attr("src", files[currentNum]);
+			$(".thumbnail").removeClass("current");
+			$(".thumbnail").eq(currentNum).addClass("current");
+		  });
+		  function autoPlay() {
+			$("#next").click();
+			timer = setTimeout(function () {
+			  autoPlay();
+			}, 1000);
+		  }
+		  $("#play").click(function () {
+			if (nowPlaying) return;
+			nowPlaying = true;
+			autoPlay();
+		  });
+		  $("#stop").click(function () {
+			clearTimeout(timer);
+			nowPlaying = false;
+		  });
+		});
+	  </script>
+</body>
+
+</html>
